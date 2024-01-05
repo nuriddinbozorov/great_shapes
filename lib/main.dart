@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:great_shapes/screens/dark_android.dart';
+import 'package:great_shapes/screens/light_android.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,30 +33,41 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
+        title: Text("Buttons"),
+        centerTitle: true,
+      ),
       body: Center(
-        child: Container(
-          width: 200,
-          height: 200,
-          decoration: BoxDecoration(
-            color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(40),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                offset: Offset(4.0, 4.0),
-                blurRadius: 15,
-                spreadRadius: 1,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.greenAccent),
               ),
-              BoxShadow(
-                color: Colors.white,
-                offset: Offset(-4.0, -4.0),
-                blurRadius: 15,
-                spreadRadius: 1,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => LightAndroid()),
+                );
+              },
+              child: Text("Light", style: TextStyle(fontSize: 24)),
+            ),
+            TextButton(
+              style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.greenAccent),
               ),
-            ],
-          ),
-          child: Icon(Icons.android, size: 80),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => DarkAndroid()),
+                );
+              },
+              child: Text("Dark", style: TextStyle(fontSize: 24)),
+            ),
+          ],
         ),
       ),
     );
