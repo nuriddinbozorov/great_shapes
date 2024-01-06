@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:great_shapes/screens/dark_and_light_mode.dart';
 import 'package:great_shapes/screens/dark_android.dart';
 import 'package:great_shapes/screens/light_android.dart';
 
@@ -40,21 +41,39 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
       ),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.greenAccent),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => LightAndroid()),
-                );
-              },
-              child: Text("Light", style: TextStyle(fontSize: 24)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.greenAccent),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => LightAndroid()),
+                    );
+                  },
+                  child: Text("Light", style: TextStyle(fontSize: 24)),
+                ),
+                TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.greenAccent),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => DarkAndroid()),
+                    );
+                  },
+                  child: Text("Dark", style: TextStyle(fontSize: 24)),
+                ),
+              ],
             ),
+            SizedBox(height: 24),
             TextButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Colors.greenAccent),
@@ -62,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => DarkAndroid()),
+                  MaterialPageRoute(builder: (_) => DarkAndLightMode()),
                 );
               },
-              child: Text("Dark", style: TextStyle(fontSize: 24)),
+              child: Text("Dark and Light", style: TextStyle(fontSize: 24)),
             ),
           ],
         ),
